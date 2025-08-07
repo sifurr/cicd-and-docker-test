@@ -25,6 +25,17 @@ jobs:
         run: | 
           echo "User Input: ${{ github.event.inputs.example_input }}"
 
+      - name: Check the user input
+        run: |
+          if [ "${{ github.event.inputs.example_input }}" = "staging" ]; then
+            echo "You chose staging"
+          elif [ "${{ github.event.inputs.example_input }}" = "production" ]; then
+            echo "You chose production"
+          else
+            echo "Invalid input"
+            exit 1
+          fi
+
       - name: Print contents of txt file
         run: |
           cat roy.txt
