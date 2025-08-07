@@ -31,9 +31,9 @@ jobs:
         run: |
           echo "The ROY_ENV variable is: $ROY_ENV"
 
-      - name: Print variable data from MY_VAR of GitHub Secrets
+      - name: Print variable data from MY_VAR of GitHub Variables
         run: |
-          echo "The MY_VAR variable is: ${{ secrets.MY_VAR }}"
+          echo "The MY_VAR variable is: ${{ vars.MY_VAR }}"
 
       - name: Print environment variable data
         run: |
