@@ -21,6 +21,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Print User input
+        run: | 
+          echo "User Input: ${{ github.event.inputs.example_input }}"
+
       - name: Print contents of txt file
         run: |
           cat roy.txt
