@@ -13,13 +13,27 @@ on:
           - staging
           - production
 
+env:
+  ROY: "Hello World"
+
 jobs:
   print_txt:
     runs-on: ubuntu-latest
 
+    env:
+      ROY_ENV: ${{ secrets.ROY_ENV }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Print ROY_ENV secret variable data  from GitHub Secrets
+        run: |
+          echo "The ROY_ENV variable is: $ROY_ENV"
+
+      - name: Print environment variable data
+        run: |
+          echo "The environment variable ROY is: $ROY"
 
       - name: Print User input
         run: | 
